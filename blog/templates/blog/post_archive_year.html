@@ -1,20 +1,28 @@
-<h1>Post Archives for {{ year|date:"Y" }}</h1>
+{% extends "base.html" %}
 
-<ul>
-    {% for date in date_list %}
+{%block title %}Django Bookmark List{% endblock %}
+
+{% block content %}
+<div id="content">
+    <h1>Post Archives for {{ year|date:"Y" }}</h1>
+
+    <ul>
+        {% for date in date_list %}
         <li style="display: inline;">
             <a href="{% url 'blog:post_month_archive' year|date:'Y' date|date:'b' %}">{{ date|date:"F" }}</a></li>
-    {% endfor %}
-</ul>
+        {% endfor %}
+    </ul>
 
-<br/>
+    <br />
 
-<div>
-    <ul>
-        {% for post in object_list %}
+    <div>
+        <ul>
+            {% for post in object_list %}
             <li>{{ post.modify_date|date:"Y-m-d" }}&nbsp;&nbsp;&nbsp;
                 <a href="{{ post.get_absolute_url }}"><strong>{{ post.title }}</strong></a>
             </li>
-        {% endfor %}
-    </ul>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
+{% endblock %}

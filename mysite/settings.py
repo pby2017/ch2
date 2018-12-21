@@ -25,7 +25,7 @@ SECRET_KEY = '&5u1!al@57jqu=q@qz_2@xg!f3vtod$xl+b%^%x=g9raau@t_)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles', 
     'bookmark.apps.BookmarkConfig', # 추가
     'blog.apps.BlogConfig', # 추가
+    'photo.apps.PhotoConfig', # 추가
 ]
 
 MIDDLEWARE = [

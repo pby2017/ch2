@@ -15,12 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls.static import static
+from django.conf import settings
 
 from mysite.views import HomeView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
     path('bookmark/', include('bookmark.urls', namespace='bookmark')),
     path('blog/', include('blog.urls', namespace='blog')),
+    path('photo/',include('photo.urls', namespace='photo')),
 ]
